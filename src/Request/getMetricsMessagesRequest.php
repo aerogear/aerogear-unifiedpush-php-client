@@ -23,8 +23,12 @@ class getMetricsMessagesRequest extends abstractApplicationRequest
     /**
      * MetricsDashboardRequest constructor.
      */
-    public function __construct()
+    public function __construct($pushAppId)
     {
+        if (true == $pushAppId) {
+            $this->setPushAppId($pushAppId);
+        }
+
         $this->setEndpoint('metrics/messages/application');
         $this->setMethod('GET');
     }
