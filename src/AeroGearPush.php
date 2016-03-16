@@ -180,7 +180,7 @@ class AeroGearPush
         );
 
         if (200 !== $response->getStatusCode()) {
-            throw new AeroGearPushException('Something went wrong');
+            throw new AeroGearPushException($response->getContent());
         }
 
         return json_decode($response->getBody()->getContents());
