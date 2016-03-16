@@ -453,6 +453,11 @@ class AeroGearPush
      */
     public function senderPush(senderPushRequest $request)
     {
+        if (empty($request->message) || empty($request->criteria))
+        {
+            throw new AeroGearPushException("Required fields 'message' and 'critera' have to be present.");
+        }
+
         $data = [
           'message'  => $request->message,
           'criteria' => $request->criteria,
