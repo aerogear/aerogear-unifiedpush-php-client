@@ -100,16 +100,16 @@ class abstractApplicationRequest
     }
 
     /**
-     * @param $user
-     * @param $pass
+     * @param $pushAppId
+     * @param $masterSecret
      *
      * @return $this
      */
-    public function setAuth($user, $pass)
+    public function setAuth($pushAppId, $masterSecret)
     {
         $this->auth = [
-          $user,
-          $pass,
+          $pushAppId,
+          $masterSecret,
         ];
 
         return $this;
