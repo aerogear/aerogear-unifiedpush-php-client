@@ -1,0 +1,19 @@
+{
+    "name": "ramlev/aero-gear-push",
+    "description": "AeroGearPush REST client repository",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hasse Ramlev Hansen",
+            "email": "hasse@ramlev.dk"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+          "Napp\\": "src/"
+        }
+    },
+    "require": {
+        "guzzlehttp/guzzle": "^6.1"
+    }
+}
