@@ -18,10 +18,10 @@ use Napp\Request\createSimplePushVariantRequest;
 use Napp\Request\deleteApplicationRequest;
 use Napp\Request\getApplicationInstallationRequest;
 use Napp\Request\getApplicationRequest;
+use Napp\Request\getMetricsDashboardRequest;
 use Napp\Request\getMetricsMessagesRequest;
-use Napp\Request\MetricsDashboardRequest;
+use Napp\Request\getSysInfoHealthRequest;
 use Napp\Request\senderPushRequest;
-use Napp\Request\SysInfoHealthRequest;
 
 /**
  * Class AeroGearPush
@@ -129,12 +129,12 @@ class AeroGearPush
     }
 
     /**
-     * @param \Napp\Request\SysInfoHealthRequest $request
+     * @param \Napp\Request\getSysInfoHealthRequest $request
      *
      * @return string
      * @throws \Exception
      */
-    public function sysInfoHealth(SysInfoHealthRequest $request)
+    public function sysInfoHealth(getSysInfoHealthRequest $request)
     {
         if (!empty($request->headers)) {
             $request->data['headers'] = $request->headers;
@@ -159,12 +159,12 @@ class AeroGearPush
     /**
      * GET dashboard data.
      *
-     * @param \Napp\Request\MetricsDashboardRequest $request
+     * @param \Napp\Request\getMetricsDashboardRequest $request
      *
      * @return mixed
-     * @throws \Exception
+     * @throws \Napp\Exception\AeroGearPushException
      */
-    public function metricsDashboard(MetricsDashboardRequest $request)
+    public function metricsDashboard(getMetricsDashboardRequest $request)
     {
         if (!empty($request->headers)) {
             $request->data['headers'] = $request->headers;

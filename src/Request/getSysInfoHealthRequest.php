@@ -11,12 +11,12 @@
 namespace Napp\Request;
 
 /**
- * Class SysInfoHealthRequest
+ * Class getSysInfoHealthRequest
  *
  * @package Napp\Request
  * @author  Hasse Ramlev Hansen <hasse@ramlev.dk>
  */
-class SysInfoHealthRequest extends abstractApplicationRequest
+class getSysInfoHealthRequest extends abstractApplicationRequest
 {
     /**
      * SysInfoHealthRequest constructor.

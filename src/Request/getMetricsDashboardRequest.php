@@ -11,14 +11,14 @@
 namespace Napp\Request;
 
 /**
- * Class MetricsDashboardRequest
+ * Class getMetricsDashboardRequest
  *
  * GET dashboard data.
  *
  * @package Napp\Request
  * @author  Hasse Ramlev Hansen <hasse@ramlev.dk>
  */
-class MetricsDashboardRequest extends abstractApplicationRequest
+class getMetricsDashboardRequest extends abstractApplicationRequest
 {
     /**
      * @var
