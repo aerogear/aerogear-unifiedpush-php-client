@@ -19,6 +19,21 @@ namespace Napp\Request;
 class createIosVariantRequest extends abstractApplicationRequest
 {
     /**
+     * @var
+     */
+    public $certificate;
+
+    /**
+     * @var
+     */
+    public $passphrase;
+
+    /**
+     * @var
+     */
+    public $production;
+
+    /**
      * createIosVariantRequest constructor.
      *
      * @param $pushAppId
@@ -31,6 +46,42 @@ class createIosVariantRequest extends abstractApplicationRequest
 
         $this->setEndpoint('applications');
         $this->setMethod('POST');
-        $this->setContentType('multipart/form-data');
+        $this->setContentType('multipart/form-data; boundary='.uniqid());
+    }
+
+    /**
+     * @param $certificate
+     *
+     * @return $this
+     */
+    public function setCertificate($certificate)
+    {
+        $this->setData('certificate', $certificate);
+
+        return $this;
+    }
+
+    /**
+     * @param mixed $passphrase
+     *
+     * @return $this
+     */
+    public function setPassphrase($passphrase)
+    {
+        $this->setData('passphrase', $passphrase);
+
+        return $this;
+    }
+
+    /**
+     * @param mixed $production
+     *
+     * @return $this
+     */
+    public function setProduction($production)
+    {
+        $this->setData('production', $production);
+
+        return $this;
     }
 }

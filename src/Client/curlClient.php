@@ -46,7 +46,7 @@ class curlClient
      *
      * @return mixed|\Psr\Http\Message\ResponseInterface
      */
-    public function call($method, $url, $endpoint, $auth, $data, $options = array())
+    public function call($method, $url, $endpoint, $auth, $data, $options = [])
     {
         $queryParams = null;
 
@@ -71,32 +71,37 @@ class curlClient
 
         // Set datatype, wheather it's a file upload or json
         if (isset($data['certificate'])) {
-            $dataType                = 'form_params';
-            $headers['Content-Type'] = 'multipart/form-data; boundary='.md5(
-                time()
-              );
+            $dataType = 'multipart';
+            foreach ($data as $key => $value) {
+                $data[] = [
+                  'name'     => $key,
+                  'contents' => $value,
+                ];
+                unset($data[$key]);
+            }
         } else {
             $dataType                = 'json';
             $headers['Content-Type'] = 'application/json';
         }
 
-            try {
+        try {
             $response = $this->client->request(
               $method,
               $url.$endpoint,
               [
-                'debug'   => false,
-                'verify'  => isset($options['verifySSL']) ? $options['verifySSL'] : true,
-                $dataType => $data,
-                'auth'    => $auth,
-                'headers' => $headers,
+                'debug'       => false,
+                'http_errors' => true,
+                'verify'      => isset($options['verifySSL']) ? $options['verifySSL'] : true,
+                $dataType     => $data,
+                'auth'        => $auth,
+                'headers'     => $headers,
               ]
             );
 
             return $response;
         } catch (\Exception $e) {
             return new JsonResponse(
-              $e->getResponse()->getReasonPhrase(), $e->getCode()
+              $e->getMessage(), $e->getCode()
             );
         }
     }
