@@ -46,7 +46,6 @@ class createIosVariantRequest extends abstractApplicationRequest
 
         $this->setEndpoint('applications');
         $this->setMethod('POST');
-        $this->setContentType('multipart/form-data; boundary='.uniqid());
     }
 
     /**
