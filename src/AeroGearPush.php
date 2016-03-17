@@ -61,6 +61,10 @@ class AeroGearPush
      */
     public function __construct($serverUrl, $options = [])
     {
+        if (false == $serverUrl || false == parse_url($serverUrl)) {
+            throw new AeroGearPushException('No, or malformed serverUrl available');
+        }
+
         $this->setServerUrl($serverUrl);
 
         if (0 < count($options)) {
@@ -230,6 +234,10 @@ class AeroGearPush
      */
     public function createSimplePushVariant(CreateSimplePushVariantRequest $request)
     {
+        if (null == $request->pushAppId) {
+            throw new AeroGearPushException('No pushAppId.');
+        }
+
         if (!empty($request->headers)) {
             $request->data['headers'] = $request->headers;
         }
@@ -237,7 +245,7 @@ class AeroGearPush
         $response = $this->curlClient->call(
           $request->method,
           $this->serverUrl,
-          $request->endpoint.(!empty($request->pushAppId) ? '/'.$request->pushAppId.'/simplePush' : ''),
+          $request->endpoint.'/'.$request->pushAppId.'/simplePush',
           [],
           $request->data,
           ['verifySSL' => false]
@@ -259,6 +267,10 @@ class AeroGearPush
      */
     public function createIosVariant(CreateIosVariantRequest $request)
     {
+        if (null == $request->pushAppId) {
+            throw new AeroGearPushException('No pushAppId.');
+        }
+
         if (!empty($request->headers)) {
             $request->data['headers'] = $request->headers;
         }
@@ -266,7 +278,7 @@ class AeroGearPush
         $response = $this->curlClient->call(
           $request->method,
           $this->serverUrl,
-          $request->endpoint.(!empty($request->pushAppId) ? '/'.$request->pushAppId.'/ios' : ''),
+          $request->endpoint.'/'.$request->pushAppId.'/ios',
           [],
           $request->data,
           ['verifySSL' => false]
@@ -288,6 +300,10 @@ class AeroGearPush
      */
     public function createAndroidVariant(CreateAndroidVariantRequest $request)
     {
+        if (null == $request->pushAppId) {
+            throw new AeroGearPushException('No pushAppId.');
+        }
+
         // Check for required googleKey field.
         if (!isset($request->data['googleKey'])) {
             throw new AeroGearPushException("Required field 'googleKey' not set.");
@@ -300,7 +316,7 @@ class AeroGearPush
         $response = $this->curlClient->call(
           $request->method,
           $this->serverUrl,
-          $request->endpoint.(!empty($request->pushAppId) ? '/'.$request->pushAppId.'/android' : ''),
+          $request->endpoint.'/'.$request->pushAppId.'/android',
           [],
           $request->data,
           ['verifySSL' => false]
@@ -356,6 +372,10 @@ class AeroGearPush
      */
     public function getApplicationInstallation(GetApplicationInstallationRequest $request)
     {
+        if (null == $request->variantId) {
+            throw new AeroGearPushException('No variantId.');
+        }
+
         if (!empty($request->headers)) {
             $request->data['headers'] = $request->headers;
         }
@@ -430,6 +450,10 @@ class AeroGearPush
      */
     public function deleteApplication(DeleteApplicationRequest $request)
     {
+        if (null == $request->pushAppId) {
+            throw new AeroGearPushException('No pushAppId.');
+        }
+
         if (!empty($request->headers)) {
             $request->data['headers'] = $request->headers;
         }
