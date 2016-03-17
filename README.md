@@ -15,8 +15,11 @@ Example on how to use this library.
 ```php
 <?php
 
+use Napp\AeroGearPush;
 use Napp\AeroGearPush\Request;
 use Napp\AeroGearPush\Exception;
+
+$client = new AeroGearPush('https://host.com/ag-push/rest/');
 
 $request = new senderPushRequest();
 $request
