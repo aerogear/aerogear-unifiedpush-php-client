@@ -8,12 +8,12 @@
  * file that was distributed with this source code.
  */
 
-namespace Napp\Request;
+namespace Napp\AeroGearPush\Request;
 
 /**
  * Class updateApplicationRequest
  *
- * @package Napp\Request
+ * @package Napp\AeroGearPush\Request
  * @author  Hasse Ramlev Hansen <hasse@ramlev.dk>
  */
 class updateApplicationRequest extends abstractApplicationRequest

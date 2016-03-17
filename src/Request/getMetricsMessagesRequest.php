@@ -8,14 +8,14 @@
  * file that was distributed with this source code.
  */
 
-namespace Napp\Request;
+namespace Napp\AeroGearPush\Request;
 
 /**
  * Class getMetricsMessagesRequest
  *
  * GET info about submitted push messages for the given Push Application
  *
- * @package Napp\Request
+ * @package Napp\AeroGearPush\Request
  * @author  Hasse Ramlev Hansen <hasse@ramlev.dk>
  */
 class getMetricsMessagesRequest extends abstractApplicationRequest

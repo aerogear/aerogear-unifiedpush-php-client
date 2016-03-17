@@ -15,8 +15,8 @@ Example on how to use this library.
 ```php
 <?php
 
-use Napp\Request;
-use Napp\Exception;
+use Napp\AeroGearPush\Request;
+use Napp\AeroGearPush\Exception;
 
 $request = new senderPushRequest();
 $request
@@ -96,7 +96,7 @@ json
 ```setBearer() # oAuth token```
 ```setCertificate() # fopen file resource```
 ```setPassphrase() # string```
-```setProduction() # boolean```
+```setProduction() # string ('true' or 'false')'```
 
 ##### Optional methods
 ```setName() # string```

@@ -8,7 +8,7 @@
  * file that was distributed with this source code.
  */
 
-namespace Napp\Client;
+namespace Napp\AeroGearPush\Client;
 
 use GuzzleHttp\Client;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -16,7 +16,7 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 /**
  * Class curlClient
  *
- * @package Napp\Client
+ * @package Napp\AeroGearPush\Client
  * @author  Hasse Ramlev Hansen <hasse@ramlev.dk>]
  */
 class curlClient

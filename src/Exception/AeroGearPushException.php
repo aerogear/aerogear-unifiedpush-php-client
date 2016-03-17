@@ -7,12 +7,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace Napp\Exception;
+namespace Napp\AeroGearPush\Exception;
 
 /**
  * Class AeroGearPushException
  *
- * @package Napp\Exception
+ * @package Napp\AeroGearPush\Exception
  * @author  Hasse Ramlev Hansen <hasse@ramlev.dk>
  */
 class AeroGearPushException extends \Exception

@@ -10,7 +10,7 @@
     ],
     "autoload": {
         "psr-4": {
-          "Napp\\": "src/"
+          "Napp\\AeroGearPush\\": "src/"
         }
     },
     "require": {
