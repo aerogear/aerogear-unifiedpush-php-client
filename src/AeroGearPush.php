@@ -83,14 +83,6 @@ class AeroGearPush
     }
 
     /**
-     * @return \Napp\AeroGearPush\AeroGearPush
-     */
-    public static function create()
-    {
-        return new AeroGearPush();
-    }
-
-    /**
      * @param $verifySSL
      *
      * @return $this
