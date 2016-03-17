@@ -10,8 +10,8 @@
 
 namespace AeroGearPush\Tests;
 
-use Napp\AeroGearPush;
-use Napp\Request\createApplicationRequest;
+use Napp\AeroGearPush\AeroGearPush;
+use Napp\AeroGearPush\Request\CreateApplicationRequest;
 
 /**
  * Class AeroGearPushTest
@@ -38,7 +38,7 @@ class AeroGearPushTest extends \PHPUnit_Framework_TestCase
 
     public function testCreateApplicationRequest()
     {
-        $request = new createApplicationRequest();
+        $request = new CreateApplicationRequest();
 
         $this->assertEquals('applications', $request->endpoint);
         $this->assertEquals('POST', $request->method);
