@@ -11,15 +11,15 @@
 namespace Napp\AeroGearPush\Request;
 
 /**
- * Class updateApplicationRequest
+ * Class UpdateApplicationRequest
  *
  * @package Napp\AeroGearPush\Request
  * @author  Hasse Ramlev Hansen <hasse@ramlev.dk>
  */
-class updateApplicationRequest extends abstractApplicationRequest
+class UpdateApplicationRequest extends abstractApplicationRequest
 {
     /**
-     * updateApplicationRequest constructor.
+     * UpdateApplicationRequest constructor.
      *
      * @param $pushAppId
      */

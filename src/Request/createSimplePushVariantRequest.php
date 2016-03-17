@@ -11,15 +11,15 @@
 namespace Napp\AeroGearPush\Request;
 
 /**
- * Class createSimplePushVariantRequest
+ * Class CreateSimplePushVariantRequest
  *
  * @package Napp\AeroGearPush\Request
  * @author  Hasse Ramlev Hansen <hasse@ramlev.dk>
  */
-class createSimplePushVariantRequest extends abstractApplicationRequest
+class CreateSimplePushVariantRequest extends abstractApplicationRequest
 {
     /**
-     * createSimplePushVariantRequest constructor.
+     * CreateSimplePushVariantRequest constructor.
      *
      * @param $pushAppId
      */

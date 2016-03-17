@@ -11,15 +11,15 @@
 namespace Napp\AeroGearPush\Request;
 
 /**
- * Class getApplicationRequest
+ * Class GetApplicationRequest
  *
  * @package Napp\AeroGearPush\Request
  * @author  Hasse Ramlev Hansen <hasse@ramlev.dk>
  */
-class getApplicationRequest extends abstractApplicationRequest
+class GetApplicationRequest extends abstractApplicationRequest
 {
     /**
-     * getApplicationRequest constructor.
+     * GetApplicationRequest constructor.
      *
      * @param bool $pushAppId
      */

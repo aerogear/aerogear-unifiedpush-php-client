@@ -14,12 +14,12 @@ use GuzzleHttp\Client;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 /**
- * Class curlClient
+ * Class CurlClient
  *
  * @package Napp\AeroGearPush\Client
  * @author  Hasse Ramlev Hansen <hasse@ramlev.dk>]
  */
-class curlClient
+class CurlClient
 {
     /**
      * @var \GuzzleHttp\Client
@@ -27,7 +27,7 @@ class curlClient
     protected $client;
 
     /**
-     * curlClient constructor.
+     * CurlClient constructor.
      */
     public function __construct()
     {

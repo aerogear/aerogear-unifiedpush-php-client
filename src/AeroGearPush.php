@@ -10,18 +10,18 @@
 
 namespace Napp\AeroGearPush;
 
-use Napp\AeroGearPush\Client\curlClient;
+use Napp\AeroGearPush\Client\CurlClient;
 use Napp\AeroGearPush\Exception\AeroGearPushException;
-use Napp\AeroGearPush\Request\createAndroidVariantRequest;
-use Napp\AeroGearPush\Request\createIosVariantRequest;
-use Napp\AeroGearPush\Request\createSimplePushVariantRequest;
-use Napp\AeroGearPush\Request\deleteApplicationRequest;
-use Napp\AeroGearPush\Request\getApplicationInstallationRequest;
-use Napp\AeroGearPush\Request\getApplicationRequest;
-use Napp\AeroGearPush\Request\getMetricsDashboardRequest;
-use Napp\AeroGearPush\Request\getMetricsMessagesRequest;
-use Napp\AeroGearPush\Request\getSysInfoHealthRequest;
-use Napp\AeroGearPush\Request\senderPushRequest;
+use Napp\AeroGearPush\Request\CreateAndroidVariantRequest;
+use Napp\AeroGearPush\Request\CreateIosVariantRequest;
+use Napp\AeroGearPush\Request\CreateSimplePushVariantRequest;
+use Napp\AeroGearPush\Request\DeleteApplicationRequest;
+use Napp\AeroGearPush\Request\GetApplicationInstallationRequest;
+use Napp\AeroGearPush\Request\GetApplicationRequest;
+use Napp\AeroGearPush\Request\GetMetricsDashboardRequest;
+use Napp\AeroGearPush\Request\GetMetricsMessagesRequest;
+use Napp\AeroGearPush\Request\GetSysInfoHealthRequest;
+use Napp\AeroGearPush\Request\SenderPushRequest;
 
 /**
  * Class AeroGearPush
@@ -47,7 +47,7 @@ class AeroGearPush
     private $serverUrl;
 
     /**
-     * @var \Napp\AeroGearPush\Client\curlClient
+     * @var \Napp\AeroGearPush\Client\CurlClient
      */
     private $curlClient;
 
@@ -69,7 +69,7 @@ class AeroGearPush
             }
         }
 
-        $this->curlClient = new curlClient();
+        $this->curlClient = new CurlClient();
     }
 
     /**
@@ -131,13 +131,13 @@ class AeroGearPush
     }
 
     /**
-     * @param \Napp\AeroGearPush\Request\getSysInfoHealthRequest $request
+     *
+     * @param \Napp\AeroGearPush\Request\GetSysInfoHealthRequest $request
      *
      * @return string
-     *
      * @throws \Napp\AeroGearPush\Exception\AeroGearPushException
      */
-    public function sysInfoHealth(getSysInfoHealthRequest $request)
+    public function sysInfoHealth(GetSysInfoHealthRequest $request)
     {
         if (!empty($request->headers)) {
             $request->data['headers'] = $request->headers;
@@ -162,13 +162,12 @@ class AeroGearPush
     /**
      * GET dashboard data.
      *
-     * @param \Napp\AeroGearPush\Request\getMetricsDashboardRequest $request
+     * @param \Napp\AeroGearPush\Request\GetMetricsDashboardRequest $request
      *
      * @return mixed
-     *
      * @throws \Napp\AeroGearPush\Exception\AeroGearPushException
      */
-    public function metricsDashboard(getMetricsDashboardRequest $request)
+    public function metricsDashboard(GetMetricsDashboardRequest $request)
     {
         if (!empty($request->headers)) {
             $request->data['headers'] = $request->headers;
@@ -193,13 +192,12 @@ class AeroGearPush
     /**
      * GET info about submitted push messages for the given Push Application
      *
-     * @param \Napp\AeroGearPush\Request\getMetricsMessagesRequest $request
+     * @param \Napp\AeroGearPush\Request\GetMetricsMessagesRequest $request
      *
      * @return mixed
-     *
      * @throws \Napp\AeroGearPush\Exception\AeroGearPushException
      */
-    public function metricsMessages(getMetricsMessagesRequest $request)
+    public function metricsMessages(GetMetricsMessagesRequest $request)
     {
         if (!empty($request->headers)) {
             $request->data['headers'] = $request->headers;
@@ -225,15 +223,13 @@ class AeroGearPush
     }
 
     /**
-     * @param \Napp\AeroGearPush\Request\createSimplePushVariantRequest $request
+     * @param \Napp\AeroGearPush\Request\CreateSimplePushVariantRequest $request
      *
      * @return mixed
-     *
      * @throws \Napp\AeroGearPush\Exception\AeroGearPushException
      */
-    public function createSimplePushVariant(
-      createSimplePushVariantRequest $request
-    ) {
+    public function createSimplePushVariant(CreateSimplePushVariantRequest $request)
+    {
         if (!empty($request->headers)) {
             $request->data['headers'] = $request->headers;
         }
@@ -256,13 +252,12 @@ class AeroGearPush
     }
 
     /**
-     * @param \Napp\AeroGearPush\Request\createIosVariantRequest $request
+     * @param \Napp\AeroGearPush\Request\CreateIosVariantRequest $request
      *
      * @return mixed
-     *
      * @throws \Napp\AeroGearPush\Exception\AeroGearPushException
      */
-    public function createIosVariant(createIosVariantRequest $request)
+    public function createIosVariant(CreateIosVariantRequest $request)
     {
         if (!empty($request->headers)) {
             $request->data['headers'] = $request->headers;
@@ -286,13 +281,12 @@ class AeroGearPush
     }
 
     /**
-     * @param \Napp\AeroGearPush\Request\createAndroidVariantRequest $request
+     * @param \Napp\AeroGearPush\Request\CreateAndroidVariantRequest $request
      *
      * @return mixed
-     *
      * @throws \Napp\AeroGearPush\Exception\AeroGearPushException
      */
-    public function createAndroidVariant(createAndroidVariantRequest $request)
+    public function createAndroidVariant(CreateAndroidVariantRequest $request)
     {
         // Check for required googleKey field.
         if (!isset($request->data['googleKey'])) {
@@ -323,7 +317,6 @@ class AeroGearPush
      * @param $request
      *
      * @return mixed
-     *
      * @throws \Napp\AeroGearPush\Exception\AeroGearPushException
      */
     public function createApplication($request)
@@ -356,14 +349,13 @@ class AeroGearPush
     }
 
     /**
-     * @param \Napp\AeroGearPush\Request\getApplicationInstallationRequest $request
+     * @param \Napp\AeroGearPush\Request\GetApplicationInstallationRequest $request
      *
      * @return mixed
      * @throws \Napp\AeroGearPush\Exception\AeroGearPushException
      */
-    public function getApplicationInstallation(
-      getApplicationInstallationRequest $request
-    ) {
+    public function getApplicationInstallation(GetApplicationInstallationRequest $request)
+    {
         if (!empty($request->headers)) {
             $request->data['headers'] = $request->headers;
         }
@@ -400,16 +392,13 @@ class AeroGearPush
 
 
     /**
-     * @param \Napp\AeroGearPush\Request\getApplicationRequest $request
+     * @param \Napp\AeroGearPush\Request\GetApplicationRequest $request
      *
      * @return mixed
-     *
      * @throws \Napp\AeroGearPush\Exception\AeroGearPushException
      */
-    public
-    function getApplication(
-      getApplicationRequest $request
-    ) {
+    public function getApplication(GetApplicationRequest $request)
+    {
         if (!empty($request->headers)) {
             $request->data['headers'] = $request->headers;
         }
@@ -434,13 +423,12 @@ class AeroGearPush
     }
 
     /**
-     * @param \Napp\AeroGearPush\Request\deleteApplicationRequest $request
+     * @param \Napp\AeroGearPush\Request\DeleteApplicationRequest $request
      *
      * @return array
-     *
      * @throws \Napp\AeroGearPush\Exception\AeroGearPushException
      */
-    public function deleteApplication(deleteApplicationRequest $request)
+    public function deleteApplication(DeleteApplicationRequest $request)
     {
         if (!empty($request->headers)) {
             $request->data['headers'] = $request->headers;
@@ -463,13 +451,12 @@ class AeroGearPush
     }
 
     /**
-     * @param \Napp\AeroGearPush\Request\senderPushRequest $request
+     * @param \Napp\AeroGearPush\Request\SenderPushRequest $request
      *
-     * @return mixed|\Psr\Http\Message\ResponseInterface
-     *
+     * @return array
      * @throws \Napp\AeroGearPush\Exception\AeroGearPushException
      */
-    public function senderPush(senderPushRequest $request)
+    public function senderPush(SenderPushRequest $request)
     {
         if (empty($request->message) || empty($request->criteria)) {
             throw new AeroGearPushException("Required fields 'message' and 'critera' have to be present.");

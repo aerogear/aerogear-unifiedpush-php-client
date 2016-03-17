@@ -21,7 +21,7 @@ use Napp\AeroGearPush\Exception;
 
 $client = new AeroGearPush('https://host.com/ag-push/rest/');
 
-$request = new senderPushRequest();
+$request = new SenderPushRequest();
 $request
 ->setAuth('PushApplicationID', 'MasterSecret')
 ->setMessage(
@@ -37,7 +37,7 @@ $request
 );
 
 try {
-  $response = $client->senderPush($request);
+  $response = $client->SenderPush($request);
   var_dump($response);
 } catch (AeroGearPushException $e) {
   die($e->getMessage());
@@ -49,7 +49,7 @@ try {
 For information about how to format the single methods which is accepting arrays, please take a look at the
  [AeroGear Unified Push API documentation](https://aerogear.org/docs/specs/aerogear-unifiedpush-rest/).
 
-#### createApplicationRequest()
+#### CreateApplicationRequest()
 ##### Required methods
 ```setBearer() # oAuth token```
 ```setName() # string```
@@ -65,7 +65,7 @@ The response is handled by ```createApplication($request)```
 json
 
 
-#### updateApplicationRequest()
+#### UpdateApplicationRequest()
 ##### Required methods
 ```setBearer() # oAuth token```
 ```setName() # string```
@@ -81,7 +81,7 @@ The response is handled by ```createApplication()```
 json
 
 
-#### deleteApplicationRequest($pushAppId)
+#### DeleteApplicationRequest($pushAppId)
 ##### Required methods
 ```setBearer() # oAuth token```
 
@@ -94,7 +94,7 @@ The response is handled by ```deleteApplication()```
 json
 
 
-#### createIosVariantRequest($pushAppId)
+#### CreateIosVariantRequest($pushAppId)
 ##### Required methods
 ```setBearer() # oAuth token```
 ```setCertificate() # fopen file resource```
@@ -113,7 +113,7 @@ The reponse is handled by ```createIosVariant($request)```
 json
 
 
-#### createSimplePushVariantRequest($pushAppId)
+#### CreateSimplePushVariantRequest($pushAppId)
 ##### Required methods
 ```setBearer() # oAuth token```
 
@@ -130,7 +130,7 @@ The response is handled by ```createSimplePushVariant()```
 json
 
 
-#### createAndroidVariantRequest($pushAppId)
+#### CreateAndroidVariantRequest($pushAppId)
 ##### Required methods
 ```setBearer() # oAuth token```
 ```setGoogleKey() # string```
@@ -148,7 +148,7 @@ The response is handled by ```createAndroidVariant()```
 json
 
 
-#### senderPushRequest()
+#### SenderPushRequest()
 [Aerogear Unified Push documentation](https://aerogear.org/docs/specs/aerogear-unifiedpush-rest/#397083935)
 
 ##### Required methods
@@ -166,7 +166,7 @@ The response is handled by ```senderPush()```
 json
 
 
-#### getApplicationInstallationRequest()
+#### GetApplicationInstallationRequest()
 ##### Required methods
 ```setBearer() # oAuth token```
 ```setVariantId() # string```
@@ -181,7 +181,7 @@ The response is handled by ```getApplicationInstallation()```
 json
 
 
-#### getApplicationRequest()
+#### GetApplicationRequest()
 ##### Required methods
 ```setBearer() # oAuth token```
 
@@ -198,7 +198,7 @@ The reponse is handled by ```getApplication()```
 json
 
 
-#### getMetricsMessagesRequest()
+#### GetMetricsMessagesRequest()
 ##### Required methods
 ```setBearer() # oAuth token```
 
@@ -213,7 +213,7 @@ The response is handled by '''metricsMessages()```
 json
 
 
-#### getMetricsDashboardRequest()
+#### GetMetricsDashboardRequest()
 ##### Required methods
 ```setBearer() # oAuth token```
 
@@ -227,7 +227,7 @@ The response is handled by ```metricsDashboard()```
 json
 
 
-#### getSysInfoHealthRequest()
+#### GetSysInfoHealthRequest()
 ##### Required methods
 ```setBearer() # oAuth token```
 

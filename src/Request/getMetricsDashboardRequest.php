@@ -11,14 +11,14 @@
 namespace Napp\AeroGearPush\Request;
 
 /**
- * Class getMetricsDashboardRequest
+ * Class GetMetricsDashboardRequest
  *
  * GET dashboard data.
  *
  * @package Napp\AeroGearPush\Request
  * @author  Hasse Ramlev Hansen <hasse@ramlev.dk>
  */
-class getMetricsDashboardRequest extends abstractApplicationRequest
+class GetMetricsDashboardRequest extends abstractApplicationRequest
 {
     /**
      * @var
@@ -26,7 +26,7 @@ class getMetricsDashboardRequest extends abstractApplicationRequest
     public $type;
 
     /**
-     * MetricsDashboardRequest constructor.
+     * GetMetricsDashboardRequest constructor.
      */
     public function __construct()
     {

@@ -11,12 +11,12 @@
 namespace Napp\AeroGearPush\Request;
 
 /**
- * Class senderPushRequest
+ * Class SenderPushRequest
  *
  * @package Napp\AeroGearPush\Request
  * @author  Hasse Ramlev Hansen <hasse@ramlev.dk>
  */
-class senderPushRequest extends abstractApplicationRequest
+class SenderPushRequest extends abstractApplicationRequest
 {
     /**
      * @var
@@ -34,7 +34,7 @@ class senderPushRequest extends abstractApplicationRequest
     public $config;
 
     /**
-     * senderPushRequest constructor.
+     * SenderPushRequest constructor.
      */
     public function __construct()
     {

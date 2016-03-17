@@ -11,12 +11,12 @@
 namespace Napp\AeroGearPush\Request;
 
 /**
- * Class getApplicationInstallationRequest
+ * Class GetApplicationInstallationRequest
  *
  * @package Napp\AeroGearPush\Request
  * @author  Hasse Ramlev Hansen <hasse@ramlev.dk>
  */
-class getApplicationInstallationRequest extends abstractApplicationRequest
+class GetApplicationInstallationRequest extends abstractApplicationRequest
 {
     /**
      * @var
@@ -29,7 +29,7 @@ class getApplicationInstallationRequest extends abstractApplicationRequest
     public $installationId;
 
     /**
-     * getApplicationInstallationRequest constructor.
+     * GetApplicationInstallationRequest constructor.
      */
     public function __construct()
     {

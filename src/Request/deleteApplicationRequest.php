@@ -11,15 +11,15 @@
 namespace Napp\AeroGearPush\Request;
 
 /**
- * Class deleteApplicationRequest
+ * Class dDleteApplicationRequest
  *
  * @package Napp\AeroGearPush\Request
  * @author  Hasse Ramlev Hansen <hasse@ramlev.dk>
  */
-class deleteApplicationRequest extends abstractApplicationRequest
+class DeleteApplicationRequest extends abstractApplicationRequest
 {
     /**
-     * createApplicationRequest constructor.
+     * DeleteApplicationRequest constructor.
      */
     public function __construct($pushAppId)
     {

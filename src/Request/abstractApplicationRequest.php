@@ -11,12 +11,12 @@
 namespace Napp\AeroGearPush\Request;
 
 /**
- * Class abstractApplicationRequest
+ * Class AbstractApplicationRequest
  *
  * @package Napp\AeroGearPush\Request
  * @author  Hasse Ramlev Hansen <hasse@ramlev.dk>
  */
-class abstractApplicationRequest
+class AbstractApplicationRequest
 {
     /**
      * @var

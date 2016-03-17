@@ -11,17 +11,17 @@
 namespace Napp\AeroGearPush\Request;
 
 /**
- * Class getMetricsMessagesRequest
+ * Class GetMetricsMessagesRequest
  *
  * GET info about submitted push messages for the given Push Application
  *
  * @package Napp\AeroGearPush\Request
  * @author  Hasse Ramlev Hansen <hasse@ramlev.dk>
  */
-class getMetricsMessagesRequest extends abstractApplicationRequest
+class GetMetricsMessagesRequest extends abstractApplicationRequest
 {
     /**
-     * MetricsDashboardRequest constructor.
+     * GetMetricsMessagesRequest constructor.
      */
     public function __construct($pushAppId)
     {

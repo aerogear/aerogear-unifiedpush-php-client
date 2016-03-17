@@ -11,15 +11,15 @@
 namespace Napp\AeroGearPush\Request;
 
 /**
- * Class getSysInfoHealthRequest
+ * Class GetSysInfoHealthRequest
  *
  * @package Napp\AeroGearPush\Request
  * @author  Hasse Ramlev Hansen <hasse@ramlev.dk>
  */
-class getSysInfoHealthRequest extends abstractApplicationRequest
+class GetSysInfoHealthRequest extends abstractApplicationRequest
 {
     /**
-     * SysInfoHealthRequest constructor.
+     * GetSysInfoHealthRequest constructor.
      */
     public function __construct()
     {
