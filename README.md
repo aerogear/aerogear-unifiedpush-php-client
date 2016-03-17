@@ -94,6 +94,9 @@ json
 #### createIosVariantRequest($pushAppId)
 ##### Required methods
 ```setBearer() # oAuth token```
+```setCertificate() # fopen file resource```
+```setPassphrase() # string```
+```setProduction() # boolean```
 
 ##### Optional methods
 ```setName() # string```
