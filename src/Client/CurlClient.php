@@ -11,7 +11,11 @@
 namespace Napp\AeroGearPush\Client;
 
 use GuzzleHttp\Client;
-use Symfony\Component\HttpFoundation\JsonResponse;
+use GuzzleHttp\Exception\ClientException;
+use Napp\AeroGearPush\Exception\AeroGearAuthErrorException;
+use Napp\AeroGearPush\Exception\AeroGearBadRequestException;
+use Napp\AeroGearPush\Exception\AeroGearNotFoundException;
+use Napp\AeroGearPush\Exception\AeroGearPushException;
 
 /**
  * Class CurlClient
@@ -35,8 +39,6 @@ class CurlClient
     }
 
     /**
-     * Parse request data and execute Guzzle request.
-     *
      * @param       $method
      * @param       $url
      * @param       $endpoint
@@ -44,7 +46,11 @@ class CurlClient
      * @param       $data
      * @param array $options
      *
-     * @return mixed|\Psr\Http\Message\ResponseInterface
+     * @return \Psr\Http\Message\StreamInterface
+     * @throws \Napp\AeroGearPush\Exception\AeroGearAuthErrorException
+     * @throws \Napp\AeroGearPush\Exception\AeroGearBadRequestException
+     * @throws \Napp\AeroGearPush\Exception\AeroGearNotFoundException
+     * @throws \Napp\AeroGearPush\Exception\AeroGearPushException
      */
     public function call($method, $url, $endpoint, $auth, $data, $options = [])
     {
@@ -62,11 +68,13 @@ class CurlClient
         if (!empty($data['headers'])) {
             $headers = $data['headers']['headers'];
             unset($data['headers']);
+        }
 
+        // Set Authorization Bearer if a Oauth token is available.
+        if (isset($options['OAuthToken'])) {
+            $headers['Authorization'] = 'Bearer '.$options['OAuthToken'];
             // If Authorization bearer is avail, disable auth.
-            if (isset($headers['Authorization'])) {
-                $auth = [];
-            }
+            $auth = [];
         }
 
         // Set datatype, wheather it's a file upload or json
@@ -98,11 +106,19 @@ class CurlClient
               ]
             );
 
-            return $response;
-        } catch (\Exception $e) {
-            return new JsonResponse(
-              $e->getMessage(), $e->getCode()
-            );
+            return $response->getBody();
+        } catch (ClientException $e) {
+            switch ($e->getCode()) {
+                case 400:
+                case 415:
+                    throw new AeroGearBadRequestException($e->getMessage(), $e->getCode());
+                case 401:
+                    throw new AeroGearAuthErrorException($e->getMessage(), $e->getCode());
+                case 404:
+                    throw new AeroGearNotFoundException($e->getMessage(), $e->getCode());
+                case 500:
+                    throw new AeroGearPushException($e->getMessage(), $e->getCode());
+            }
         }
     }
 }

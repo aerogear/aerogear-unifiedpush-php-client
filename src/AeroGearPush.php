@@ -11,6 +11,7 @@
 namespace Napp\AeroGearPush;
 
 use Napp\AeroGearPush\Client\CurlClient;
+use Napp\AeroGearPush\Exception\AeroGearMissingOAuthTokenException;
 use Napp\AeroGearPush\Exception\AeroGearPushException;
 use Napp\AeroGearPush\Request\CreateAndroidVariantRequest;
 use Napp\AeroGearPush\Request\CreateIosVariantRequest;
@@ -135,14 +136,17 @@ class AeroGearPush
     }
 
     /**
-     *
      * @param \Napp\AeroGearPush\Request\GetSysInfoHealthRequest $request
      *
      * @return string
+     * @throws \Napp\AeroGearPush\Exception\AeroGearMissingOAuthTokenException
      * @throws \Napp\AeroGearPush\Exception\AeroGearPushException
      */
     public function sysInfoHealth(GetSysInfoHealthRequest $request)
     {
+        if (!isset($request->OAuthToken)) {
+            throw new AeroGearMissingOAuthTokenException();
+        }
         if (!empty($request->headers)) {
             $request->data['headers'] = $request->headers;
         }
@@ -153,14 +157,13 @@ class AeroGearPush
           $request->endpoint,
           [],
           $request->data,
-          ['verifySSL' => false]
+          [
+            'verifySSL'  => false,
+            'OAuthToken' => $request->OAuthToken,
+          ]
         );
 
-        if (200 !== $response->getStatusCode()) {
-            throw new AeroGearPushException($response->getContent());
-        }
-
-        return $response->getBody()->getContents();
+        return $response;
     }
 
     /**
@@ -183,14 +186,13 @@ class AeroGearPush
           $request->endpoint.(isset($request->type) ? '/'.$request->type : null),
           [],
           $request->data,
-          ['verifySSL' => false]
+          [
+            'verifySSL'  => false,
+            'OAuthToken' => $request->OAuthToken,
+          ]
         );
 
-        if (200 !== $response->getStatusCode()) {
-            throw new AeroGearPushException($response->getContent());
-        }
-
-        return json_decode($response->getBody()->getContents());
+        return $response;
     }
 
     /**
@@ -215,15 +217,12 @@ class AeroGearPush
           $request->data,
           [
             'verifySSL'  => false,
+            'OAuthToken' => $request->OAuthToken,
             'queryParam' => isset($request->queryParam) ? $request->queryParam : false,
           ]
         );
 
-        if (200 !== $response->getStatusCode()) {
-            throw new AeroGearPushException($response->getContent());
-        }
-
-        return json_decode($response->getBody()->getContents());
+        return $response;
     }
 
     /**
@@ -248,15 +247,13 @@ class AeroGearPush
           $request->endpoint.'/'.$request->pushAppId.'/simplePush',
           [],
           $request->data,
-          ['verifySSL' => false]
+          [
+            'verifySSL'  => false,
+            'OAuthToken' => $request->OAuthToken,
+          ]
         );
 
-        if (204 !== $response->getStatusCode() && 201 !== $response->getStatusCode()
-        ) {
-            throw new AeroGearPushException($response->getContent());
-        }
-
-        return json_decode($response->getBody()->getContents());
+        return $response;
     }
 
     /**
@@ -281,15 +278,13 @@ class AeroGearPush
           $request->endpoint.'/'.$request->pushAppId.'/ios',
           [],
           $request->data,
-          ['verifySSL' => false]
+          [
+            'verifySSL'  => false,
+            'OAuthToken' => $request->OAuthToken,
+          ]
         );
 
-        if (204 !== $response->getStatusCode() && 201 !== $response->getStatusCode()
-        ) {
-            throw new AeroGearPushException($response->getContent());
-        }
-
-        return json_decode($response->getBody()->getContents());
+        return $response;
     }
 
     /**
@@ -319,14 +314,13 @@ class AeroGearPush
           $request->endpoint.'/'.$request->pushAppId.'/android',
           [],
           $request->data,
-          ['verifySSL' => false]
+          [
+            'verifySSL'  => false,
+            'OAuthToken' => $request->OAuthToken,
+          ]
         );
 
-        if (201 !== $response->getStatusCode()) {
-            throw new AeroGearPushException($response->getContent());
-        }
-
-        return json_decode($response->getBody()->getContents());
+        return $response;
     }
 
     /**
@@ -354,14 +348,13 @@ class AeroGearPush
           $request->endpoint.(isset($request->pushAppId) ? '/'.$request->pushAppId : null),
           [],
           $request->data,
-          ['verifySSL' => false]
+          [
+            'verifySSL'  => false,
+            'OAuthToken' => $request->OAuthToken,
+          ]
         );
 
-        if (204 !== $response->getStatusCode() && 201 !== $response->getStatusCode()) {
-            throw new AeroGearPushException($response->getContent());
-        }
-
-        return json_decode($response->getBody()->getContents());
+        return $response;
     }
 
     /**
@@ -399,15 +392,12 @@ class AeroGearPush
           [],
           $request->data,
           [
-            'verifySSL' => false,
+            'verifySSL'  => false,
+            'OAuthToken' => $request->OAuthToken,
           ]
         );
 
-        if (200 !== $response->getStatusCode()) {
-            throw new AeroGearPushException($response->getContent());
-        }
-
-        return json_decode($response->getBody()->getContents());
+        return $response;
     }
 
 
@@ -431,15 +421,12 @@ class AeroGearPush
           $request->data,
           [
             'verifySSL'  => false,
+            'OAuthToken' => $request->OAuthToken,
             'queryParam' => isset($request->queryParam) ? $request->queryParam : false,
           ]
         );
 
-        if (200 !== $response->getStatusCode()) {
-            throw new AeroGearPushException($response->getContent());
-        }
-
-        return json_decode($response->getBody()->getContents());
+        return $response;
     }
 
     /**
@@ -464,14 +451,13 @@ class AeroGearPush
           $request->endpoint.'/'.$request->pushAppId,
           [],
           $request->data,
-          ['verifySSL' => false]
+          [
+            'verifySSL'  => false,
+            'OAuthToken' => $request->OAuthToken,
+          ]
         );
 
-        if (204 !== $response->getStatusCode()) {
-            throw new AeroGearPushException($response->getContent());
-        }
-
-        return ['Deleted'];
+        return $response;
     }
 
     /**
@@ -483,7 +469,7 @@ class AeroGearPush
     public function senderPush(SenderPushRequest $request)
     {
         if (empty($request->message) || empty($request->criteria)) {
-            throw new AeroGearPushException("Required fields 'message' and 'critera' have to be present.");
+            throw new AeroGearPushException("Required fields 'message' and 'criteria' have to be present.");
         }
 
         $data = [
@@ -499,13 +485,11 @@ class AeroGearPush
           $request->endpoint,
           $auth,
           $data,
-          ['verifySSL' => false]
+          [
+            'verifySSL' => false,
+          ]
         );
 
-        if (202 !== $response->getStatusCode()) {
-            throw new AeroGearPushException($response->getContent());
-        }
-
-        return ['OK'];
+        return $response;
     }
 }

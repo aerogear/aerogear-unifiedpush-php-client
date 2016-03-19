@@ -8,6 +8,18 @@ A library which intgrates with the the [Redhat Aerogear Unified Push](https://ae
     $ composer require napp/aero-gear-push
 
 
+## Keycloak oauth token usage
+
+All, but SenderPushRequest(), have a OAuthToken dependency, and to generate the token, look in examples/oauth-keycloak.md
+
+An example on how to set the token.
+
+```php
+$request->setOauthToken($token);
+```
+
+
+
 ## Usage
 
 Example on how to use this library.
@@ -51,7 +63,7 @@ For information about how to format the single methods which is accepting arrays
 
 #### CreateApplicationRequest()
 ##### Required methods
-```setBearer() # oAuth token```
+```setOauthToken() # oAuth token```
 ```setName() # string```
 
 ##### Optional methods
@@ -67,7 +79,7 @@ json
 
 #### UpdateApplicationRequest()
 ##### Required methods
-```setBearer() # oAuth token```
+```setOauthToken() # oAuth token```
 ```setName() # string```
 
 ##### Optional methods
@@ -83,7 +95,7 @@ json
 
 #### DeleteApplicationRequest($pushAppId)
 ##### Required methods
-```setBearer() # oAuth token```
+```setOauthToken() # oAuth token```
 
 ##### Optional methods
 
@@ -96,7 +108,7 @@ json
 
 #### CreateIosVariantRequest($pushAppId)
 ##### Required methods
-```setBearer() # oAuth token```
+```setOauthToken() # oAuth token```
 ```setCertificate() # fopen file resource```
 ```setPassphrase() # string```
 ```setProduction() # string ('true' or 'false')'```
@@ -115,7 +127,7 @@ json
 
 #### CreateSimplePushVariantRequest($pushAppId)
 ##### Required methods
-```setBearer() # oAuth token```
+```setOauthToken() # oAuth token```
 
 ##### Optional methods
 ```setName() # string```
@@ -132,7 +144,7 @@ json
 
 #### CreateAndroidVariantRequest($pushAppId)
 ##### Required methods
-```setBearer() # oAuth token```
+```setOauthToken() # oAuth token```
 ```setGoogleKey() # string```
 
 ##### Optional methods
@@ -168,7 +180,7 @@ json
 
 #### GetApplicationInstallationRequest()
 ##### Required methods
-```setBearer() # oAuth token```
+```setOauthToken() # oAuth token```
 ```setVariantId() # string```
 
 ##### Optional methods
@@ -183,7 +195,7 @@ json
 
 #### GetApplicationRequest()
 ##### Required methods
-```setBearer() # oAuth token```
+```setOauthToken() # oAuth token```
 
 ##### Optional methods
 ```setPageNumber() # integer```
@@ -200,7 +212,7 @@ json
 
 #### GetMetricsMessagesRequest()
 ##### Required methods
-```setBearer() # oAuth token```
+```setOauthToken() # oAuth token```
 
 ##### Optional methods
 ```setPageNumber() # integer```
@@ -215,7 +227,7 @@ json
 
 #### GetMetricsDashboardRequest()
 ##### Required methods
-```setBearer() # oAuth token```
+```setOauthToken() # oAuth token```
 
 ##### Optional methods
 ```setType() # string {active, warnings}```
@@ -229,7 +241,7 @@ json
 
 #### GetSysInfoHealthRequest()
 ##### Required methods
-```setBearer() # oAuth token```
+```setOauthToken() # oAuth token```
 
 ##### Optional methods
 

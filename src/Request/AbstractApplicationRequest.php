@@ -26,12 +26,12 @@ class AbstractApplicationRequest
     /**
      * @var
      */
-    public $pushAppId;
+    public $OAuthToken;
 
     /**
      * @var
      */
-    public $bearer;
+    public $pushAppId;
 
     /**
      * @var
@@ -62,6 +62,26 @@ class AbstractApplicationRequest
      * @var
      */
     public $queryParam;
+
+    /**
+     * @return mixed
+     */
+    public function getOAuthToken()
+    {
+        return $this->OAuthToken;
+    }
+
+    /**
+     * @param mixed $oAuthToken
+     *
+     * @return $this
+     */
+    public function setOAuthToken($OAuthToken)
+    {
+        $this->OAuthToken = $OAuthToken;
+
+        return $this;
+    }
 
     /**
      * @param $endpoint
@@ -136,18 +156,6 @@ class AbstractApplicationRequest
     public function setContentType($contentType = 'application/json')
     {
         $this->setHeader('Content-Type', $contentType);
-
-        return $this;
-    }
-
-    /**
-     * @param $bearer
-     *
-     * @return $this
-     */
-    public function setBearer($bearer)
-    {
-        $this->setHeader('Authorization', 'Bearer '.$bearer);
 
         return $this;
     }

@@ -11,12 +11,12 @@
 namespace Napp\AeroGearPush\Exception;
 
 /**
- * Class AeroGearPushException
+ * Class AeroGearBadRequestException
  *
  * @package Napp\AeroGearPush\Exception
  * @author  Hasse Ramlev Hansen <hasse@ramlev.dk>
  */
-class AeroGearPushException extends \Exception
+class AeroGearBadRequestException extends \Exception
 {
     public function __construct($message = "", $code = 0, Exception $previous = null) {
         parent::__construct($message, $code);
