@@ -10,6 +10,8 @@
 
 namespace Napp\AeroGearPush\Request;
 
+use Napp\AeroGearPush\Exception\AeroGearAuthErrorException;
+
 /**
  * Class GetApplicationRequest
  *
@@ -22,12 +24,16 @@ class GetApplicationRequest extends abstractApplicationRequest
      * GetApplicationRequest constructor.
      *
      * @param bool $pushAppId
+     *
+     * @throws \Napp\AeroGearPush\Exception\AeroGearAuthErrorException
      */
     public function __construct($pushAppId = false)
     {
-        if (true == $pushAppId) {
-            $this->setPushAppId($pushAppId);
+        if (false == $pushAppId) {
+            throw new AeroGearAuthErrorException();
         }
+        
+        $this->setPushAppId($pushAppId);
 
         $this->setEndpoint('applications');
         $this->setMethod('GET');

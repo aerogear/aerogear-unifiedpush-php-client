@@ -16,6 +16,8 @@ use Napp\AeroGearPush\Request\CreateApplicationRequest;
 use Napp\AeroGearPush\Request\CreateIosVariantRequest;
 use Napp\AeroGearPush\Request\CreateSimplePushVariantRequest;
 use Napp\AeroGearPush\Request\DeleteApplicationRequest;
+use Napp\AeroGearPush\Request\GetApplicationInstallationRequest;
+use Napp\AeroGearPush\Request\GetApplicationRequest;
 use Napp\AeroGearPush\Request\GetMetricsDashboardRequest;
 use Napp\AeroGearPush\Request\GetMetricsMessagesRequest;
 use Napp\AeroGearPush\Request\GetSysInfoHealthRequest;
@@ -64,6 +66,12 @@ class AeroGearPushTest extends \PHPUnit_Framework_TestCase
 
         $this->assertEquals($pushApplicationID, $request->pushAppId);
         $this->assertEquals('POST', $request->method);
+
+        $request->setGoogleKey('{GOOGLE_KEY}');
+        $this->assertEquals('{GOOGLE_KEY}', $request->data['googleKey']);
+        $request->setProjectNumber('123');
+        $this->assertEquals('123', $request->data['projectNumber']);
+
     }
 
     public function testCreateIosApplicationRequest()
@@ -199,6 +207,32 @@ class AeroGearPushTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('warnings', $request->type);
     }
 
+    /**
+     * @expectedException \Napp\AeroGearPush\Exception\AeroGearAuthErrorException
+     */
+    public function testGetApplicationNoPushAppIdRequest()
+    {
+        new GetApplicationRequest();
+    }
+
+    public function testGetApplicationRequest()
+    {
+        $pushAppID = uniqid();
+        $request = new GetApplicationRequest($pushAppID);
+
+        $this->assertEquals($pushAppID, $request->pushAppId);
+        $request->setPageNumber(8);
+        $request->setPerPage(10);
+        $request->enableActivity();
+        $request->enableDeviceCount();
+
+        $this->assertEquals(8, $request->queryParam['page']);
+        $this->assertEquals(10, $request->queryParam['per_page']);
+        $this->assertEquals('true', $request->queryParam['includeDeviceCount']);
+        $this->assertEquals('true', $request->queryParam['includeActivity']);
+
+    }
+
     public function testGetMetricsMessagesRequest()
     {
         $pushAppId = uniqid();
@@ -217,5 +251,21 @@ class AeroGearPushTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(10, $request->queryParam['per_page']);
         $this->assertEquals('ASC', $request->queryParam['sort']);
         $this->assertEquals('android', $request->queryParam['search']);
+    }
+
+    public function testGetApplicationInstallationRequest()
+    {
+        $request = new GetApplicationInstallationRequest();
+
+        $this->assertEquals('applications/VARIANTID/installations', $request->endpoint);
+        $this->assertEquals('GET', $request->method);
+
+        $variantId = uniqid();
+        $request->setVariantId($variantId);
+        $this->assertEquals($variantId, $request->variantId);
+
+        $installationId = uniqid();
+        $request->setInstallationId($installationId);
+        $this->assertEquals($installationId, $request->installationId);
     }
 }
