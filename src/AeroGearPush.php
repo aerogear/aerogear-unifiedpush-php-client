@@ -60,7 +60,7 @@ class AeroGearPush
     /**
      * AeroGearPush constructor.
      */
-    public function __construct($serverUrl, $options = [])
+    public function __construct($serverUrl = false, $options = [])
     {
         if (false == $serverUrl || false == parse_url($serverUrl)) {
             throw new AeroGearPushException('No, or malformed serverUrl available');
