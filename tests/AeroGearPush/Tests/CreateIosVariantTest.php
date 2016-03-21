@@ -2,7 +2,7 @@
 /**
  * This file is part of the AeroGearPush package.
  *
- * (c) Napp <http://napp.dk>
+ * (c) NAPP <http://napp.dk>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -13,27 +13,22 @@ namespace AeroGearPush\Tests;
 use Napp\AeroGearPush\Client\DummyClient;
 
 /**
- * Class CreateApplicationTest
+ * Class CreateIosVariantTest
  *
  * @package AeroGearPush\Tests
  * @author  Hasse Ramlev Hansen <hasse@ramlev.dk>
  */
-class CreateApplicationTest extends \PHPUnit_Framework_TestCase
+class CreateIosVariantTest extends \PHPUnit_Framework_TestCase
 {
-    /**
-     * @throws \Napp\AeroGearPush\Exception\AeroGearAuthErrorException
-     * @throws \Napp\AeroGearPush\Exception\AeroGearBadRequestException
-     * @throws \Napp\AeroGearPush\Exception\AeroGearNotFoundException
-     * @throws \Napp\AeroGearPush\Exception\AeroGearPushException
-     */
-    public function testCreateApplication()
+
+    public function testCreateIosVariant()
     {
         $client = new DummyClient();
 
         $response = $client->call(
           'POST',
           'https://host.com/rest',
-          'applications',
+          'applications/6d917118/ios',
           [],
           [],
           []
@@ -42,13 +37,14 @@ class CreateApplicationTest extends \PHPUnit_Framework_TestCase
         $response = json_decode($response);
 
         $this->assertEquals(
-          '3aad1e92-3255-461b-8129-854025a5e7ab',
+          '22debd80-04ab-4213-ac6f-18d6c0c106fe',
           $response->id
         );
         $this->assertEquals(
-          'dc5df3f3-2609-4547-9cc5-a844fc3b09e3',
-          $response->pushApplicationID
+          '13f663bc-6321-4fc0-b8e1-77429d6c180c',
+          $response->variantID
         );
-        $this->assertEmpty($response->variants);
+        $this->assertEquals(false, $response->production);
+        $this->assertEquals('ios', $response->type);
     }
 }

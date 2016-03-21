@@ -2,7 +2,7 @@
 /**
  * This file is part of the AeroGearPush package.
  *
- * (c) Napp <http://napp.dk>
+ * (c) NAPP <http://napp.dk>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -13,12 +13,12 @@ namespace AeroGearPush\Tests;
 use Napp\AeroGearPush\Client\DummyClient;
 
 /**
- * Class CreateApplicationTest
+ * Class CreateAndroidVariantTest
  *
  * @package AeroGearPush\Tests
  * @author  Hasse Ramlev Hansen <hasse@ramlev.dk>
  */
-class CreateApplicationTest extends \PHPUnit_Framework_TestCase
+class CreateAndroidVariantTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @throws \Napp\AeroGearPush\Exception\AeroGearAuthErrorException
@@ -26,14 +26,14 @@ class CreateApplicationTest extends \PHPUnit_Framework_TestCase
      * @throws \Napp\AeroGearPush\Exception\AeroGearNotFoundException
      * @throws \Napp\AeroGearPush\Exception\AeroGearPushException
      */
-    public function testCreateApplication()
+    public function testCreateAndroidVariant()
     {
         $client = new DummyClient();
 
         $response = $client->call(
           'POST',
           'https://host.com/rest',
-          'applications',
+          'applications/6d917118/android',
           [],
           [],
           []
@@ -42,13 +42,14 @@ class CreateApplicationTest extends \PHPUnit_Framework_TestCase
         $response = json_decode($response);
 
         $this->assertEquals(
-          '3aad1e92-3255-461b-8129-854025a5e7ab',
+          'a69d2e3f-1447-4bfc-b355-42439e2c2ab9',
           $response->id
         );
         $this->assertEquals(
-          'dc5df3f3-2609-4547-9cc5-a844fc3b09e3',
-          $response->pushApplicationID
+          'a6d35fa9-8ed4-459d-a1f9-c8d0a3c9c34f',
+          $response->variantID
         );
-        $this->assertEmpty($response->variants);
+        $this->assertEquals('{GOOGLE_KEY}', $response->googleKey);
+        $this->assertEquals('android', $response->type);
     }
 }
