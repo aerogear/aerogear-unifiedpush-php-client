@@ -25,12 +25,12 @@ use Napp\AeroGearPush\Request\SenderPushRequest;
 use Napp\AeroGearPush\Request\UpdateApplicationRequest;
 
 /**
- * Class AeroGearPushTest
+ * Class AeroGearPushRequestTest
  *
  * @package AeroGearPush\Tests
  * @author  Hasse Ramlev Hansen <hasse@ramlev.dk>
  */
-class AeroGearPushTest extends \PHPUnit_Framework_TestCase
+class AeroGearPushRequestTest extends \PHPUnit_Framework_TestCase
 {
 
     public function testAeroGearPushClient()
