@@ -1,8 +1,10 @@
 # AeroGearPush
-A library which intgrates with the the [Redhat Aerogear Unified Push](https://aerogear.org/push/) restful API.
+
+A library which integrates with the the [Redhat Aerogear Unified Push](https://aerogear.org/push/) restful API.
 
 
 ## Installation
+
 ### Composer
 
     $ composer require napp/aero-gear-push
