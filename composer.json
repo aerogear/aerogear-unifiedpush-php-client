@@ -4,8 +4,8 @@
     "license": "MIT",
     "authors": [
         {
-            "name": "Hasse Ramlev Hansen",
-            "email": "hasse@ramlev.dk"
+          "name": "Napp",
+          "homepage": "https://napp.dk"
         }
     ],
     "autoload": {
@@ -14,7 +14,7 @@
         }
     },
     "require": {
-        "guzzlehttp/guzzle": "^6.1",
+        "guzzlehttp/guzzle": "6.1.*",
         "stevenmaguire/oauth2-keycloak": "0.1.0"
     }
 }
