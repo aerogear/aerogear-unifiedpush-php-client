@@ -16,7 +16,6 @@ use Napp\AeroGearPush\Client\DummyClient;
  * Class CreateApplicationTest
  *
  * @package AeroGearPush\Tests
- * @author  Hasse Ramlev Hansen <hasse@ramlev.dk>
  */
 class CreateApplicationTest extends \PHPUnit_Framework_TestCase
 {

@@ -1,8 +1,8 @@
 <?php
 /**
- * This file is part of the Napp\AeroGearPush package.
+ * This file is part of the AeroGearPush package.
  *
- * (c) NAPP <http://napp.dk>
+ * (c) Napp <http://napp.dk>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -14,7 +14,6 @@ namespace Napp\AeroGearPush\Request;
  * Class AbstractApplicationRequest
  *
  * @package Napp\AeroGearPush\Request
- * @author  Hasse Ramlev Hansen <hasse@ramlev.dk>
  */
 class AbstractApplicationRequest
 {
@@ -170,8 +169,7 @@ class AbstractApplicationRequest
         $this->setData('developer', $developer);
 
         return $this;
-
-      }
+    }
 
     /**
      * @param $name
@@ -202,7 +200,6 @@ class AbstractApplicationRequest
      * @param $value
      *
      * @return $this
-     *
      */
     public function setData($key, $value)
     {

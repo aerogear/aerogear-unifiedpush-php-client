@@ -2,7 +2,7 @@
 /**
  * This file is part of the AeroGearPush package.
  *
- * (c) NAPP <http://napp.dk>
+ * (c) Napp <http://napp.dk>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -16,7 +16,6 @@ use Napp\AeroGearPush\Client\DummyClient;
  * Class HealthTest
  *
  * @package AeroGearPush\Tests
- * @author  Hasse Ramlev Hansen <hasse@ramlev.dk>
  */
 class HealthTest extends \PHPUnit_Framework_TestCase
 {
@@ -48,4 +47,3 @@ class HealthTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('online', $response->details[4]->result);
     }
 }
-

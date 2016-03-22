@@ -28,7 +28,6 @@ use Napp\AeroGearPush\Request\SenderPushRequest;
  * Class AeroGearPush
  *
  * @package Napp
- * @author  Hasse Ramlev Hansen <hasse@ramlev.dk>
  */
 class AeroGearPush
 {

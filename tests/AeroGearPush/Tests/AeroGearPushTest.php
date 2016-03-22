@@ -2,7 +2,7 @@
 /**
  * This file is part of the AeroGearPush package.
  *
- * (c) NAPP <http://napp.dk>
+ * (c) Napp <http://napp.dk>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -19,7 +19,6 @@ use Napp\AeroGearPush\Request\GetSysInfoHealthRequest;
  * Class AeroGearPushTest
  *
  * @package AeroGearPush\Tests
- * @author  Hasse Ramlev Hansen <hasse@ramlev.dk>
  */
 class AeroGearPushTest extends \PHPUnit_Framework_TestCase
 {

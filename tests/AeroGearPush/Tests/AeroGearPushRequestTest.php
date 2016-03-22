@@ -2,7 +2,7 @@
 /**
  * This file is part of the AeroGearPush package.
  *
- * (c) NAPP <http://napp.dk>
+ * (c) Napp <http://napp.dk>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -28,7 +28,6 @@ use Napp\AeroGearPush\Request\UpdateApplicationRequest;
  * Class AeroGearPushRequestTest
  *
  * @package AeroGearPush\Tests
- * @author  Hasse Ramlev Hansen <hasse@ramlev.dk>
  */
 class AeroGearPushRequestTest extends \PHPUnit_Framework_TestCase
 {
@@ -71,7 +70,6 @@ class AeroGearPushRequestTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('{GOOGLE_KEY}', $request->data['googleKey']);
         $request->setProjectNumber('123');
         $this->assertEquals('123', $request->data['projectNumber']);
-
     }
 
     public function testCreateIosApplicationRequest()
@@ -230,7 +228,6 @@ class AeroGearPushRequestTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(10, $request->queryParam['per_page']);
         $this->assertEquals('true', $request->queryParam['includeDeviceCount']);
         $this->assertEquals('true', $request->queryParam['includeActivity']);
-
     }
 
     public function testGetMetricsMessagesRequest()

@@ -2,7 +2,7 @@
 /**
  * This file is part of the AeroGearPush package.
  *
- * (c) NAPP <http://napp.dk>
+ * (c) Napp <http://napp.dk>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -16,9 +16,8 @@ use Napp\AeroGearPush\Client\DummyClient;
  * Class CreateSimplepushVariantTest
  *
  * @package AeroGearPush\Tests
- * @author  Hasse Ramlev Hansen <hasse@ramlev.dk>
  */
-class CreateSimplepushVariantTest extends \PHPUnit_Framework_TestCase
+class CreateSimplePushVariantTest extends \PHPUnit_Framework_TestCase
 {
 
     public function testCreateSimplepushVariant()

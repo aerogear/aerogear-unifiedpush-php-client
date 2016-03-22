@@ -16,11 +16,8 @@ use Napp\AeroGearPush\Exception\AeroGearPushException;
 
 /**
  * Class DummyClient
- *
  * Usage only for PHPUnit tests.
- *
  * @package Napp\AeroGearPush\Client
- * @author  Hasse Ramlev Hansen <hasse@ramlev.dk>
  */
 class DummyClient
 {

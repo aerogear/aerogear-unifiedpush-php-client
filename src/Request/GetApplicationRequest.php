@@ -1,8 +1,8 @@
 <?php
 /**
- * This file is part of the Napp\AeroGearPush package.
+ * This file is part of the AeroGearPush package.
  *
- * (c) NAPP <http://napp.dk>
+ * (c) Napp <http://napp.dk>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -16,7 +16,6 @@ use Napp\AeroGearPush\Exception\AeroGearAuthErrorException;
  * Class GetApplicationRequest
  *
  * @package Napp\AeroGearPush\Request
- * @author  Hasse Ramlev Hansen <hasse@ramlev.dk>
  */
 class GetApplicationRequest extends abstractApplicationRequest
 {
