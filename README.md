@@ -254,6 +254,11 @@ The response is handled by ```sysInfoHealth()```
 json
 
 
+## Changelog 
+
+* 1.0
+    * init
+
 
 ## License
 MIT, see LICENSE.
