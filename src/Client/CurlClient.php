@@ -53,6 +53,7 @@ class CurlClient
     public function call($method, $url, $endpoint, $auth, $data, $options = [])
     {
         $queryParams = null;
+        $headers = [];
 
         // Parse query parameters.
         if (!empty($options['queryParam']) && is_array($options['queryParam'])) {
@@ -75,7 +76,7 @@ class CurlClient
             $auth = [];
         }
 
-        // Set datatype, wheather it's a file upload or json
+        // Set datatype, whether it's a file upload or json
         if (isset($data['certificate'])) {
             $dataType = 'multipart';
             foreach ($data as $key => $value) {
