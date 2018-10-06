@@ -1,3 +1,7 @@
+## Deprecation Notice
+This repository has been deprecated and is not being maintained. If you have any questions, please get in touch with the collaborators.
+
+
 # AeroGearPush
 
 A library which integrates with the the [Redhat Aerogear Unified Push](https://aerogear.org/push/) restful API.
